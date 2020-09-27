@@ -13,19 +13,19 @@ type statusRequest struct{}
 
 // statusResponse will respond a json structured answer to the user when it calls the request
 type statusResponse struct {
-	Status string `json: "status"`
+	Status string
 }
 
 // postInfoRequest will receive a json structured message, this will be read from a key called Message
 type postInfoRequest struct {
-	Message json.RawMessage `json:"message"`
+	Message json.RawMessage `json:"data"`
 }
 
 // postInfoResponse will respond a json structured answer to the user when it is valid, and it will add an error
 // if something goes wrong
 type postInfoResponse struct {
-	Valid bool   `json:"valid"`
-	Err   string `json:"err, omitempty`
+	Valid bool
+	Err   string
 }
 
 // These decoders methods will be used for all of the incoming messages can be done via curl or postman

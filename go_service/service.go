@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 )
 
 // Service will provide the interface so we can call to these methods
@@ -29,6 +28,10 @@ func (baseService) Status(ctx context.Context) (string, error) {
 // TODO: Implement logic that will enable to parse this message to an AMQP and return true if everything is okay
 func (baseService) postInfo(ctx context.Context, message json.RawMessage) (bool, error) {
 	//We can implement validations if message is empty here, but for now we dont need them
-	fmt.Printf("Message is: %s", message)
-	return true, nil
+	amqpService := baseAQMPService{}
+	published := amqpService.publishMessage(message)
+	if published != false {
+		return true, nil
+	}
+	return false, nil
 }

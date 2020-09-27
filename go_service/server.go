@@ -11,6 +11,7 @@ import (
 // I decided to implement mux as the request router and dispatcher,
 // I took this decision because I wanted to look for something that would allow me to
 // create methods with specific decoders and encoders in case we need to switch them later on.
+
 // Server function will be used to create an http server using the endpoints declared
 func Server(ctx context.Context, endpoints Endpoints) http.Handler {
 	r := mux.NewRouter()
