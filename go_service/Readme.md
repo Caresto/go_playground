@@ -11,8 +11,8 @@ Go-kit basic architecture goes like this
 - Business Logic
 
 The service has two basic endpoints:
-- `http://localhost:10000/status` which is going to return the status of the service (It can be used for monitoring)
-- `http://localhost:10000/postInfo` which receives a json message as input and this message is sent to a rabbitMQ queue using AMQP(https://github.com/streadway/amqp)
+- GET Endpoint `http://localhost:10000/status` which is going to return the status of the service (It can be used for monitoring)
+- POST Endpoint `http://localhost:10000/postInfo` which receives a json message as input and this message is sent to a rabbitMQ queue using AMQP(https://github.com/streadway/amqp)
 
 In order to run this you will need to install the following go libraries using go cli:
 
@@ -39,6 +39,7 @@ go run *.go
 
 Running examples:
 Posting a message to endpoint `http://localhost:10000/postInfo`
+Terminal displaying service running and receiving a payload
 https://www.dropbox.com/s/9gzwegjaec5u1y3/Screen%20Shot%202020-09-27%20at%205.42.34%20PM.png?dl=0
 
 Message published in queue in the RabbitMQ interface `http://localhost:15672/#/queues/%2F/MyQueue`
